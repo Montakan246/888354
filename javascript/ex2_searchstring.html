@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<script type="text/javascript">
+	function myFunction(){
+		var str = document.getElementById("txt").value;
+		var search = document.getElementById("search1").value;
+		
+		var checkRadio = document.getElementsByName("Case");
+		var Result = 0;
+		for(var i = 0; i < checkRadio.length; i++){
+			var checkRa = "";
+		    if(checkRadio[i].checked){
+		    	
+		    	checkRa = checkRadio[i].value;	
+		    	
+		    	if (checkRa=="Yes") {
+		    		Result = str.match(new RegExp(search, "g")).length;
+		    		document.getElementById("res").innerHTML = Result;
+		    	}
+		    	else if (checkRa=="No"){
+		    		Result = str.match(new RegExp(search, "gi")).length;
+		    		document.getElementById("res").innerHTML = Result;
+		    	}
+			
+			}
+		    
+		}
+		
+
+	}
+</script>
+
+</head>
+<body>
+
+<center>
+	<div>
+		<label>Text Input : </label>
+		<textarea id="txt"></textarea>
+	</div>
+	<div>
+		<label>Sensitive Case : </label>
+		<input type="radio" name="Case" value="Yes">Yes
+		<input type="radio" name="Case" value="No">No
+	</div>
+	<div>
+		<label>Search : </label>
+		<input type="Text" name="Text" id="search1">
+	</div>
+	<div>
+		<button onclick="myFunction()">Search</button>
+	</div>
+	<div>
+		<p>Result for Search : </p>
+		<p id="res"></p>
+	</div>
+</center>
+
+</body>
+</html>
