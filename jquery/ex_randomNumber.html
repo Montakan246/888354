@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<script>
+ 	var random1 = "";
+ 	var random2 = "";
+	function myFunction() {
+	    random1 = Math.floor((Math.random() * 100) + 1);
+	    random2 = Math.floor((Math.random() * 100) + 1);
+	    document.getElementById('random').innerHTML = random1+" + "+random2+" = ";
+	}
+	function sendAnswer(){
+		var Answer = document.getElementById('Answer').value;
+		var ans = random1+random2;
+
+		if (Answer == ans) {
+			document.getElementById('Result').innerHTML = "<span style='color: green;'>That's correct</span>";
+		}else{
+			document.getElementById('Result').innerHTML = "<span style='color: red;'>That's wrong. The answer is</span>";
+		}
+		
+	}
+</script>
+</head>
+<body>
+<center>
+	<h1>Ex-Randdom Number for Answer</h1>
+	<hr>
+	<div>
+		<button onclick="myFunction()">Randdom Number</button>
+	</div>
+	<div>
+		<label id="random"></label>
+		<input type="text" name="Answer" id="Answer">
+	</div>
+	<div>
+		<button onclick="sendAnswer()">Send Answer</button>
+	</div>
+	<div>
+		Result: <p id="Result"></p>
+	</div>
+</center>
+</body>
+</html>
